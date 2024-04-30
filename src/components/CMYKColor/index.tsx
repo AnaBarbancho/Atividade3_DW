@@ -1,4 +1,3 @@
-import React from "react";
 import Input from "../Input";
 import useCMYK from "../../hooks/useCMYK";
 import Title from "../Title";

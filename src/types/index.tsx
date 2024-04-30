@@ -19,15 +19,6 @@ export interface HSLAContextProps {
     setAlpha: (value:number) => void;
     color: string;
 }
-
-export interface InputProps {
-    label: string;
-    value: number;
-    setValue: (value:number) => void;
-    min: number;
-    max: number;
-}
-
 export interface CMYKContextProps{
     cyan:number;
     magenta:number;
@@ -38,4 +29,12 @@ export interface CMYKContextProps{
     setYellow:(value:number) => void;
     setBlack: (value:number) => void;
     color:string;
+}
+
+export interface InputProps {
+    label: string;
+    value: number;
+    setValue: (value:number) => void;
+    min: number;
+    max: number;
 }

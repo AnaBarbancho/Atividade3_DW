@@ -1,23 +1,32 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Menu from "../components/Menu";
 import styled from "styled-components";
-import HSLA from "../pages/HSLA";
-import CMYK from "../pages/CMYK";
-import RGB from "../pages/RGB";
+import { RGBProvider } from "../contexts/RGBContext";
+import RGBColor from "../components/RGBColor";
+import HSLAColor from "../components/HSLAColor";
+import CMYKColor from "../components/CMYKColor";
+import { HSLAProvider } from "../contexts/HSLAContext";
+import { CMYKProvider } from "../contexts/CMYKContext";
 
 export default function Rotas() {
   return (
     <PageSld>
-      <BrowserRouter>
-        <Menu />
-        <BodySld>
-          <Routes>
-            <Route path="/rgb" element={<RGB />}/>
-            <Route path="/hsla" element={<HSLA />}/>
-            <Route path="/cmyk" element={<CMYK />}/>
-          </Routes>
-        </BodySld>
-      </BrowserRouter>
+      <RGBProvider>
+        <HSLAProvider>
+          <CMYKProvider>
+            <BrowserRouter>
+              <Menu />
+              <BodySld>
+                <Routes>
+                  <Route path="/rgb" element={<RGBColor />} />
+                  <Route path="/hsla" element={<HSLAColor />} />
+                  <Route path="/cmyk" element={<CMYKColor />} />
+                </Routes>
+              </BodySld>
+            </BrowserRouter>
+          </CMYKProvider>
+        </HSLAProvider>
+      </RGBProvider>
     </PageSld>
   );
 }
